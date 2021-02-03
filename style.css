@@ -65,3 +65,9 @@ footer {
   margin-left: auto;
   margin-right: auto;
 }
+
+@media only screen and (max-width:620px) {
+  header, main, aside, footer{
+    width:100%;
+  }
+}
