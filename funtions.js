@@ -17,6 +17,86 @@ function Platillo(nombre,precio,tipo) {
   var p10 = new Platillo("Fondant Choco",115,"Postre");
   platillos.push(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10);
 
+  function obtenerNombre() {
+    var obtenerN = prompt("Ingrese el nombre del nuevo platillo");
+  
+    return obtenerN;
+  }
+  
+  function obtenerPrecio() {
+    var obtenerE = prompt("Ingrese el precio del nuevo platilo");
+    obtenerE = parseInt(obtenerE);
+  
+    return obtenerE;
+  }
+  
+  function obtenerTipo() {
+    var obtenerT = prompt("Ingrese el tipo del nuevo platilo");
+    obtenerT = obtenerT;
+  
+    return obtenerT;
+  }
+  
+  function addPlatillo() {
+    var p = new Platillo(obtenerNombre(), obtenerPrecio(), obtenerTipo());
+    platillos.push(p);
+    mostrarListado();
+  }
+  
+  function searchPlatillo(platilloBuscado){
+    var indice = -1;
+    for (var i = 0; i < platillos.length; i++) {
+      if (platillos[i].nombre == platilloBuscado) {
+        indice = i;
+      }
+    }
+    return indice;
+  }
+  
+  function modificarPlatillo(){
+    var platilloMod = prompt("Ingrese el nombre del Platillo a modificar");
+    var indice = searchPlatillo(platilloMod);
+  
+    if (indice != -1) {
+      var opc = prompt("Ingrese opción a modificar: 1.Nombre, 2.Precio, 3.Tipo");
+  
+      switch (parseInt(opc)) {
+          case 1:
+            platillos[indice].nombre = prompt("Ingrese el nuevo nombre del platillo");
+            alert("Platillo modificado con exito");
+            mostrarListado();
+            break;
+          case 2:
+            platillos[indice].precio = prompt("Ingrese el nuevo precio del platillo");
+            alert("Platillo modificado con exito");
+            mostrarListado();
+            break;
+          case 3:
+            platillos[indice].tipo = prompt("Ingrese el nuevo tipo del platillo");
+            alert("Platillo modificado con exito");
+            mostrarListado();
+            break;
+          default:
+            alert("Opción invalida");
+        }
+    }else {
+      alert("Platillo no encontrado");
+    }
+  }
+  
+  function deletePlatillo(){
+    var platilloDelete = prompt("Ingrese el nombre del Platillo a eliminar");
+    var indice = searchPlatillo(platilloDelete);
+  
+    if (indice != -1) {
+      platillos.splice(indice, 1);
+      alert("Platillo eliminado con exito");
+      mostrarListado();
+    }else {
+      alert("Platillo no encontrado");
+    }
+  }
+  
   function mostrarListado() {
     var listado = '';
     var cont = 1;
