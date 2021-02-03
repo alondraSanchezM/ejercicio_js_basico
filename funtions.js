@@ -1,4 +1,4 @@
-function Platillo(nombre,precio,tipo) {
+  function Platillo(nombre,precio,tipo) {
     this.nombre = nombre;
     this.precio = precio;
     this.tipo = tipo;
@@ -96,7 +96,7 @@ function Platillo(nombre,precio,tipo) {
       alert("Platillo no encontrado");
     }
   }
-  
+
   function mostrarListado() {
     var listado = '';
     var cont = 1;
@@ -113,3 +113,26 @@ function Platillo(nombre,precio,tipo) {
     }
     document.querySelector('.wrapper').innerHTML = listado;
  }
+
+  var totalDia = 0;
+  function pedido(){
+    alert("Para salir ingrese: Salir");
+    var platillosPedido = [];
+    do {
+      var nombre = prompt("Ingrese el nombre del Platillo");
+      platillosPedido.push(nombre);
+    } while (nombre != "Salir");
+
+    var precioTotal = 0;
+    for (var i = 0; i < platillos.length; i++) {
+      for (var j = 0; j < platillosPedido.length; j++) {
+        if (platillos[i].nombre == platillosPedido[j]) {
+          precioTotal = precioTotal + platillos[i].precio;
+        }
+      }
+    }
+    alert("El precio total es: $" + precioTotal + "MXN");
+    totalDia = totalDia + precioTotal;
+  }
+
+  function cerrar(){alert("Dinero total ganado: $" + totalDia + "MXN");}
