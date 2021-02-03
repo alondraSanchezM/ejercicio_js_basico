@@ -29,6 +29,12 @@ aside {
   padding-bottom: 30px;
 }
 
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 22px;
+}
+
 h2 {
   padding-top: 30px;
   padding-left: 30px;
